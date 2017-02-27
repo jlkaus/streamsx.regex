@@ -5,6 +5,9 @@ com.ibm.streamsx.regex/samples
 samples/*/doc
 samples/*/output
 index.*
+**/toolkit.xml
+**/*_cpp.pm
+**/*_h.pm
 # begin streamsx.regex excluded
 .classpath
 .settings
