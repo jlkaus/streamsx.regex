@@ -25,7 +25,7 @@ namespace com {	namespace ibm {	namespace streamsx { namespace regex { namespace
 		template<typename Index>
 		inline RE2::Options& getRE2Options(const SPL::rstring & pattern, long maxmem) {
 			if(pattern.empty())
-				SPLAPPTRC(L_WARN, "Regular expression '" + pattern + "' is empty, possibly 'regexCompile' was not called before.", "REGEX");
+                            SPLAPPTRC(L_WARN, "Regular expression '" + pattern + (const SPL::rstring)"' is empty, possibly 'regexCompile' was not called before.", "REGEX");
 
 			static RE2::Options options;
 			options.set_log_errors(true);
@@ -44,7 +44,7 @@ namespace com {	namespace ibm {	namespace streamsx { namespace regex { namespace
 		inline bool regexCompile(const SPL::rstring & pattern, const Index & patternIndex, long maxmem=1000000) {
 			RE2 const& regex = getRE2<Index>(pattern, maxmem);
 			if(!regex.ok())
-				THROW(SPL::SPLRuntimeOperator, "Regular expression '" + pattern + "' failed to compile - " + regex.error());
+                            THROW(SPL::SPLRuntimeOperator, "Regular expression '" + pattern + (const SPL::rstring)"' failed to compile - " + regex.error());
 
 			return true;
 		}
